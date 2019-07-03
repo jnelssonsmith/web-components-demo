@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Web Components Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <script type="text/javascript" src="./ChatMessage.js"></script>
+        <main>
+            <div class="layout">
+                <section class="chat-container">
+                    <chat-message sent name="Nelsson-Smith, Josh">
+                        <p>Hey want to play some tabletennis</p>
+                    </chat-message>
+                    <chat-message sent name="Nelsson-Smith, Josh">
+                            <p>This is a longer chat message with some content. Blah blah blah.</p>
+                        </chat-message>
+                    <chat-message name="Shaw, Ciaran">
+                        <p>I don't really care man... You always win anyway.</p>
+                    </chat-message> 
+                    <chat-message sent name="Nelsson-Smith, Josh">
+                        <p>Fair enough, hey check this out</p>
+                        <img src="./important-img.png" />
+                    </chat-message>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

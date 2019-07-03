@@ -1,0 +1,45 @@
+body {
+    background-color: #201F1F;
+}
+
+p {
+    margin: 0;
+}
+main {
+    width: 100%;
+    position: relative;
+    
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    max-width: 908px;
+    width: 100%;
+}
+
+chat-message {
+    float: left;
+    clear: both;
+    margin-top: 20px;
+    max-width: 656px;
+}
+
+chat-message[sent] {
+    float: right;
+    --background-color: #3A3B55;
+}
+
+chat-message[sent=false] + chat-message {
+    margin-top: 5px;
+}
+
+chat-message[sent] + chat-message[sent] {
+    margin-top: 5px;
+}

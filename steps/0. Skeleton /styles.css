@@ -1,0 +1,25 @@
+body {
+    background-color: #201F1F;
+}
+
+p {
+    margin: 0;
+}
+main {
+    width: 100%;
+    position: relative;
+    
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    max-width: 908px;
+    width: 100%;
+}

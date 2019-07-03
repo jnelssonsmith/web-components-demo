@@ -33,6 +33,10 @@ class ChatMessage extends HTMLElement {
                 .timestamp__time {
                     color: #8a8886;
                 }
+
+                .message__text {
+                    margin: 0;
+                }
             </style>
             <div class="message">
                 <div class="timestamp">

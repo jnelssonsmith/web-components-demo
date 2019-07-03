@@ -2,6 +2,7 @@ class ChatMessage extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
+
         const template = `
             <style>
                 :host {
@@ -33,16 +34,19 @@ class ChatMessage extends HTMLElement {
                     color: #8a8886;
                 }
 
+                .message__text {
+                    margin: 0;
+                }
+
                 ::slotted(img) {
                     width: 100%;
                     height: 100%;
                 }
             </style>
-
             <div class="message">
                 <div class="timestamp">
-                    <span class="timestamp__name"></span>
-                    <span class="timestamp__time"></span>
+                    <span class="timestamp__name">Some Person</span>
+                    <span class="timestamp__time">11:11</span>
                 </div>
                 <slot></slot>
             </div>
@@ -50,21 +54,27 @@ class ChatMessage extends HTMLElement {
 
         this._shadowRoot.innerHTML = template;
 
-        this._nameEl = this._shadowRoot.querySelector('.timestamp__name')
-        this._timeEl= this._shadowRoot.querySelector('.timestamp__time')
+        this.timeEl = this._shadowRoot.querySelector('.timestamp__time');
+        this.nameEl = this._shadowRoot.querySelector('.timestamp__name');
+
+        this._timeSent = '';
+        this._name = '';
     }
 
     connectedCallback() {
+        // name, time-sent, message
         if (!this.hasAttribute('name')) {
             this.setAttribute('name', '');
         }
 
         if (!this.hasAttribute('time-sent')) {
             const d = new Date();
-            const timeStr = d.getHours() + ":" + d.getMinutes();
+            const timeStr = `${d.getHours()}:${d.getMinutes()}`;
             this.setAttribute('time-sent', timeStr);
         }
     }
+
+    disconnectedCallback() {}
 
     static get observedAttributes() {
         return ['name', 'time-sent']
@@ -86,14 +96,15 @@ class ChatMessage extends HTMLElement {
     }
 
     _render() {
-        if (this._nameEl) {
-            this._nameEl.textContent = this._name;
+        if (this.timeEl) {
+            this.timeEl.textContent = this._timeSent;
         }
 
-        if (this._timeEl) {
-            this._timeEl.textContent = this._timeSent;
+        if (this.nameEl) {
+            this.nameEl.textContent = this._name;
         }
     }
+
 }
 
 customElements.define('chat-message', ChatMessage);

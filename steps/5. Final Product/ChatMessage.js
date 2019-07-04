@@ -37,6 +37,11 @@ class ChatMessage extends HTMLElement {
                 .message__text {
                     margin: 0;
                 }
+
+                ::slotted(img) {
+                    width: 100%;
+                    height: 100%;
+                }
             </style>
             <div class="message">
                 <div class="timestamp">

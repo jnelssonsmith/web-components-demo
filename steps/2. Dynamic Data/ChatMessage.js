@@ -40,10 +40,10 @@ class ChatMessage extends HTMLElement {
             </style>
             <div class="message">
                 <div class="timestamp">
-                    <span class="timestamp__name">Some Person</span>
-                    <span class="timestamp__time">11:11</span>
+                    <span class="timestamp__name"></span>
+                    <span class="timestamp__time"></span>
                 </div>
-                <p class="message__text">Some text</p>
+                <p class="message__text"></p>
             </div>
         `;
 

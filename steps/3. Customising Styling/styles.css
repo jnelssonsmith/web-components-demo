@@ -37,10 +37,6 @@ chat-message[sent] {
     --background-color: #3A3B55;
 }
 
-chat-message[sent=false] + chat-message {
-    margin-top: 5px;
-}
-
 chat-message[sent] + chat-message[sent] {
     margin-top: 5px;
 }
